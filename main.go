@@ -110,9 +110,8 @@ func main() {
 	r.HandleFunc("/{timestamp}", TimeHandler)
 	http.Handle("/", r)
 	port := os.Getenv("PORT")
-	log.Println("Port to listen to", port)
 	if port == "" {
 		port = "3000"
 	}
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
